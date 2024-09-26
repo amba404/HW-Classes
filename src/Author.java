@@ -22,14 +22,15 @@ public class Author {
 
     @Override
     public String toString() {
-        String result = "";
-        if (!firstName.isEmpty()) result += "" + firstName.charAt(0) + '.';
+        StringBuilder result = new StringBuilder();
+        if (!firstName.isEmpty()) result.append(new char[]{firstName.charAt(0), '.'});
         if (!result.isEmpty()) {
-            result = lastName + ' ' + result;
+            result.insert(0, ' ');
+            result.insert(0, lastName);
         } else {
-            result = lastName;
+            result.append(lastName);
         }
-        return result;
+        return result.toString();
     }
 
     @Override
